@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Apple body -->
+  <ellipse cx="200" cy="230" rx="135" ry="130" fill="#ff4d4f"/>
+  <!-- Left cheek highlight -->
+  <ellipse cx="140" cy="175" rx="30" ry="50" fill="#ff7a7c" opacity="0.65"/>
+  <!-- Top dent -->
+  <path d="M200 110 Q180 95 168 115 Q155 135 180 145 Q195 140 200 110 Z" fill="#ffffff" opacity="0.15"/>
+  <!-- Brown stem -->
+  <path d="M200 110 Q204 85 215 75" stroke="#6b3d1e" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- Green leaf -->
+  <path d="M212 80 Q260 50 270 90 Q260 120 220 105 Z" fill="#4caf50"/>
+  <path d="M215 85 Q240 80 260 95" stroke="#2e7d32" stroke-width="3" fill="none"/>
+  <!-- Cute eyes -->
+  <circle cx="165" cy="230" r="12" fill="#1a1a1a"/>
+  <circle cx="235" cy="230" r="12" fill="#1a1a1a"/>
+  <circle cx="168" cy="226" r="4" fill="#ffffff"/>
+  <circle cx="238" cy="226" r="4" fill="#ffffff"/>
+  <!-- Blush -->
+  <ellipse cx="145" cy="265" rx="20" ry="12" fill="#ffb3b3" opacity="0.7"/>
+  <ellipse cx="255" cy="265" rx="20" ry="12" fill="#ffb3b3" opacity="0.7"/>
+  <!-- Smile -->
+  <path d="M180 275 Q200 292 220 275" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round" fill="none"/>
+</svg>

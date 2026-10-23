@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Body -->
+  <ellipse cx="200" cy="280" rx="120" ry="85" fill="#d4a574"/>
+  <!-- Head -->
+  <circle cx="200" cy="180" r="95" fill="#d4a574"/>
+  <!-- Left ear -->
+  <path d="M115 145 Q95 100 115 85 Q140 95 135 140 Z" fill="#b88554"/>
+  <!-- Right ear -->
+  <path d="M285 145 Q305 100 285 85 Q260 95 265 140 Z" fill="#b88554"/>
+  <!-- Inner ear -->
+  <path d="M120 130 Q110 105 120 95 Q132 105 128 130 Z" fill="#f5c7a0"/>
+  <path d="M280 130 Q290 105 280 95 Q268 105 272 130 Z" fill="#f5c7a0"/>
+  <!-- White snout -->
+  <ellipse cx="200" cy="215" rx="45" ry="32" fill="#f7ecd8"/>
+  <!-- Eyes -->
+  <circle cx="165" cy="165" r="13" fill="#1a1a1a"/>
+  <circle cx="235" cy="165" r="13" fill="#1a1a1a"/>
+  <circle cx="169" cy="161" r="4.5" fill="#ffffff"/>
+  <circle cx="239" cy="161" r="4.5" fill="#ffffff"/>
+  <!-- Nose -->
+  <ellipse cx="200" cy="200" rx="13" ry="10" fill="#1a1a1a"/>
+  <!-- Mouth -->
+  <path d="M200 210 Q200 225 190 230" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M200 210 Q200 225 210 230" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Tongue -->
+  <ellipse cx="200" cy="235" rx="10" ry="7" fill="#ff8a8a"/>
+  <!-- Collar -->
+  <rect x="145" y="260" width="110" height="12" rx="6" fill="#e74c3c"/>
+  <circle cx="200" cy="272" r="8" fill="#f1c40f" stroke="#b8860b" stroke-width="2"/>
+  <!-- Tail -->
+  <path d="M315 260 Q350 230 345 200 Q330 220 320 250" stroke="#b88554" stroke-width="20" stroke-linecap="round" fill="none"/>
+</svg>

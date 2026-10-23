@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Outer eye shape -->
+  <path d="M60 200 Q200 90 340 200 Q200 310 60 200 Z" fill="#ffffff" stroke="#333333" stroke-width="8"/>
+  <!-- Iris -->
+  <circle cx="200" cy="200" r="80" fill="#3498db"/>
+  <!-- Iris detail rings -->
+  <circle cx="200" cy="200" r="70" fill="none" stroke="#2171b5" stroke-width="3"/>
+  <circle cx="200" cy="200" r="55" fill="none" stroke="#2171b5" stroke-width="2"/>
+  <!-- Radial iris lines -->
+  <g stroke="#1a5276" stroke-width="2" opacity="0.5">
+    <line x1="200" y1="130" x2="200" y2="270"/>
+    <line x1="130" y1="200" x2="270" y2="200"/>
+    <line x1="151" y1="151" x2="249" y2="249"/>
+    <line x1="151" y1="249" x2="249" y2="151"/>
+  </g>
+  <!-- Pupil -->
+  <circle cx="200" cy="200" r="35" fill="#1a1a1a"/>
+  <!-- Top highlight -->
+  <ellipse cx="215" cy="180" rx="18" ry="13" fill="#ffffff" opacity="0.95"/>
+  <!-- Small bottom highlight -->
+  <ellipse cx="188" cy="218" rx="6" ry="4" fill="#ffffff" opacity="0.7"/>
+  <!-- Eyelashes top -->
+  <g stroke="#333333" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M95 165 Q92 148 88 140"/>
+    <path d="M130 140 Q128 120 124 108"/>
+    <path d="M170 125 Q170 105 168 90"/>
+    <path d="M200 118 Q200 98 200 82"/>
+    <path d="M230 125 Q230 105 232 90"/>
+    <path d="M270 140 Q272 120 276 108"/>
+    <path d="M305 165 Q308 148 312 140"/>
+  </g>
+  <!-- Eyelashes bottom (shorter) -->
+  <g stroke="#333333" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M125 260 Q122 272 118 278"/>
+    <path d="M170 272 Q168 283 166 290"/>
+    <path d="M200 275 Q200 287 200 294"/>
+    <path d="M230 272 Q232 283 234 290"/>
+    <path d="M275 260 Q278 272 282 278"/>
+  </g>
+</svg>

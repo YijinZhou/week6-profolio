@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Let's Learn English</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-1: #fff4d6;
+    --bg-2: #ffe2ea;
+    --ink:  #3d2c1e;
+    --brown: #6b4a2f;
+    --peach: #ffc29e;
+    --coral: #ff7a8a;
+    --green: #6fc48f;
+    --green-deep: #3fa264;
+    --blue:  #7fb5e8;
+    --yellow:#ffd24d;
+    --purple:#b79cff;
+    --shadow: 0 6px 0 rgba(0,0,0,.08), 0 14px 28px rgba(0,0,0,.08);
+    --radius: 28px;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    font-family: 'Fredoka', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 15% 10%, #ffd6e7 0, transparent 55%),
+      radial-gradient(circle at 85% 20%, #ffeecf 0, transparent 55%),
+      radial-gradient(circle at 50% 100%, #e0f0ff 0, transparent 60%),
+      linear-gradient(160deg, var(--bg-1), var(--bg-2));
+    min-height: 100vh;
+    padding: 1.5rem;
+    display: grid;
+    place-items: center;
+  }
+
+  /* ---------- Screen switcher (strict visibility rule) ---------- */
+  .screen { display: none; width: 100%; max-width: 560px; }
+  .screen.is-active { display: block; animation: popIn .35s ease both; }
+  @keyframes popIn {
+    from { opacity: 0; transform: translateY(12px) scale(.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ---------- Home screen ---------- */
+  .home { text-align: center; }
+  .home__mascot {
+    font-size: 5rem;
+    margin-bottom: .2rem;
+    animation: bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-10px); }
+  }
+  .home__title {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    font-weight: 700;
+    color: var(--brown);
+    margin: .2em 0 .1em;
+  }
+  .home__subtitle {
+    font-size: 1.1rem;
+    color: var(--ink);
+    opacity: .78;
+    margin-bottom: 1.8rem;
+  }
+  .home__start {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 1rem 2.4rem;
+    border-radius: 999px;
+    border: none;
+    color: #fff;
+    background: linear-gradient(135deg, var(--coral), #ff9d4d);
+    box-shadow: 0 8px 0 rgba(0,0,0,.12), 0 18px 28px rgba(0,0,0,.14);
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .home__start:hover { transform: translateY(-2px); }
+  .home__start:active { transform: translateY(3px); box-shadow: 0 3px 0 rgba(0,0,0,.12); }
+
+  /* ---------- Question screen ---------- */
+  .quiz {
+    background: rgba(255,255,255,.78);
+    backdrop-filter: blur(6px);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.3rem 1.6rem;
+    box-shadow: var(--shadow);
+    border: 3px solid #fff;
+  }
+  .quiz__progress {
+    text-align: center;
+    color: var(--brown);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: .8rem;
+  }
+  .quiz__dots { display: inline-flex; gap: .45rem; margin-top: .2rem; }
+  .quiz__dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #f1d9c5; transition: background .2s ease, transform .2s ease;
+  }
+  .quiz__dot.is-done { background: var(--green); transform: scale(1.1); }
+  .quiz__dot.is-cur { background: var(--coral); transform: scale(1.2); }
+
+  .quiz__img-wrap {
+    aspect-ratio: 1 / 1;
+    width: 65%;
+    max-width: 260px;
+    margin: .3rem auto 1rem;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #fff;
+    border: 4px solid #fff;
+    box-shadow: 0 6px 16px rgba(0,0,0,.12);
+  }
+  .quiz__img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+
+  .quiz__prompt {
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--brown);
+    margin-bottom: 1rem;
+  }
+
+  .quiz__options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .7rem;
+  }
+  @media (max-width: 380px) { .quiz__options { grid-template-columns: 1fr; } }
+
+  .opt {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1.35rem;
+    padding: 1rem .6rem;
+    border-radius: 22px;
+    border: 3px solid #fff;
+    color: var(--ink);
+    background: linear-gradient(180deg, #fff8ef, #ffe8d4);
+    box-shadow: 0 5px 0 rgba(0,0,0,.1);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    transition: transform .1s ease, box-shadow .1s ease, background .2s ease;
+  }
+  .opt:hover:not(:disabled) { transform: translateY(-2px); }
+  .opt:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,.1); }
+
+  .opt__mark {
+    position: absolute; right: .65rem; top: 50%;
+    transform: translateY(-50%) scale(0);
+    font-size: 1.6rem;
+    transition: transform .2s cubic-bezier(.34,1.56,.64,1);
+  }
+  .opt.is-wrong {
+    background: linear-gradient(180deg, #fff0f0, #ffd2d2);
+    border-color: #ff9a9a;
+  }
+  .opt.is-wrong .opt__mark { color: var(--coral); transform: translateY(-50%) scale(1); }
+  .opt.is-correct {
+    background: linear-gradient(180deg, #e9fbe9, #b9ecc0);
+    border-color: var(--green);
+    animation: pulseCorrect .5s ease;
+  }
+  .opt.is-correct .opt__mark { color: var(--green-deep); transform: translateY(-50%) scale(1); }
+  @keyframes pulseCorrect {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  .opt:disabled { cursor: default; }
+
+  /* ---------- Victory screen ---------- */
+  .viki { text-align: center; }
+  .viki__fireworks {
+    font-size: 3.5rem;
+    display: flex; justify-content: center; gap: 1rem;
+    margin-bottom: .2rem;
+  }
+  .viki__fireworks span { animation: confetti 1.4s ease-in-out infinite; }
+  .viki__fireworks span:nth-child(2) { animation-delay: .25s; }
+  .viki__fireworks span:nth-child(3) { animation-delay: .5s; }
+  .viki__fireworks span:nth-child(4) { animation-delay: .75s; }
+  @keyframes confetti {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50%     { transform: translateY(-14px) rotate(12deg); }
+  }
+  .viki__title {
+    font-size: clamp(2rem, 6vw, 2.6rem);
+    font-weight: 700;
+    color: var(--brown);
+    margin: .3em 0;
+  }
+  .viki__subtitle { color: var(--ink); opacity: .8; margin-bottom: 1.6rem; font-size: 1.1rem; }
+  .viki__restart {
+    font-family: inherit; font-weight: 700; font-size: 1.35rem;
+    padding: .9rem 2rem; border-radius: 999px; border: none; color: #fff;
+    background: linear-gradient(135deg, var(--green), var(--green-deep));
+    box-shadow: 0 7px 0 rgba(0,0,0,.12), 0 14px 24px rgba(0,0,0,.14);
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .viki__restart:hover { transform: translateY(-2px); }
+  .viki__restart:active { transform: translateY(3px); box-shadow: 0 3px 0 rgba(0,0,0,.12); }
+</style>
+</head>
+<body>
+
+<!-- ============= HOME (initially visible) ============= -->
+<section id="screen-home" class="screen is-active" aria-label="Start screen">
+  <div class="home">
+    <div class="home__mascot">🦁</div>
+    <h1 class="home__title">Let's Learning English</h1>
+    <p class="home__subtitle">Tap the right picture word! 🌈</p>
+    <button class="home__start" id="btn-start" type="button">▶  Start</button>
+  </div>
+</section>
+
+<!-- ============= QUESTION 1 ============= -->
+<section id="screen-q1" class="screen quiz" aria-label="Question 1">
+  <div class="quiz__progress">
+    Question 1 of 3
+    <div class="quiz__dots">
+      <span class="quiz__dot is-cur" data-dot="0"></span>
+      <span class="quiz__dot"     data-dot="1"></span>
+      <span class="quiz__dot"     data-dot="2"></span>
+    </div>
+  </div>
+  <div class="quiz__img-wrap">
+    <img class="quiz__img" src="1.svg" alt="Picture of an apple">
+  </div>
+  <p class="quiz__prompt">What is this called?</p>
+  <div class="quiz__options" data-question="1">
+    <button type="button" class="opt" data-word="apple"   data-correct="true"  aria-label="Answer apple">
+      <span>apple</span><span class="opt__mark" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="opt" data-word="banana" data-correct="false" aria-label="Answer banana">
+      <span>banana</span><span class="opt__mark" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="opt" data-word="pear"   data-correct="false" aria-label="Answer pear">
+      <span>pear</span><span class="opt__mark" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="opt" data-word="grape"  data-correct="false" aria-label="Answer grape">
+      <span>grape</span><span class="opt__mark" aria-hidden="true"></span>
+    </button>
+  </div>
+</section>
+
+<!-- ============= QUESTION 2 ============= -->
+<section id="screen-q2" class="screen quiz" aria-label="Question 2">
+  <div class="quiz__progress">
+    Question 2 of 3
+    <div class="quiz__dots">
+      <span class="quiz__dot is-done" data-dot="0"></span>
+      <span class="quiz__dot is-cur"  data-dot="1"></span>
+      <span class="quiz__dot"         data-dot="2"></span>
+    </div>
+  </div>
+  <div class="quiz__img-wrap">
+    <img class="quiz__img" src="2.svg" alt="Picture of a dog">
+  </div>
+  <p class="quiz__prompt">What is this called?</p>
+  <div class="quiz__options" data-question="2">
+    <button type="button" class="opt" data-word="dog"   data-correct="true"  aria-label="Answer dog">
+      <span>dog</span><span class="opt__mark" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="opt" data-word="cat"   data-correct="false" aria-label="Answer cat">
+      <span>cat</span><span class="opt__mark" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="opt" data-word="mouse" data-correct="false" aria-label="Answer mouse">
+      <span>mouse</span><span class="opt__mark" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="opt" data-word="bird"  data-correct="false" aria-label="Answer bird">
+      <span>bird</span><span class="opt__mark" aria-hidden="true"></span>
+    </button>
+  </div>
+</section>
+
+<!-- ============= QUESTION 3 ============= -->
+<section id="screen-q3" class="screen quiz" aria-label="Question 3">
+  <div class="quiz__progress">
+    Question 3 of 3
+    <div class="quiz__dots">
+      <span class="quiz__dot is-done" data-dot="0"></span>
+      <span class="quiz__dot is-done" data-dot="1"></span>
+      <span class="quiz__dot is-cur"  data-dot="2"></span>
+    </div>
+  </div>
+  <div class="quiz__img-wrap">
+    <img class="quiz__img" src="3.svg" alt="Picture of an eye">
+  </div>
+  <p class="quiz__prompt">What is this called?</p>
+  <div class="quiz__options" data-question="3">
+    <button type="button" class="opt" data-word="eye"   data-correct="true"  aria-label="Answer eye">
+      <span>eye</span><span class="opt__mark" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="opt" data-word="hand"  data-correct="false" aria-label="Answer hand">
+      <span>hand</span><span class="opt__mark" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="opt" data-word="foot"   data-correct="false" aria-label="Answer foot">
+      <span>foot</span><span class="opt__mark" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="opt" data-word="nose"  data-correct="false" aria-label="Answer nose">
+      <span>nose</span><span class="opt__mark" aria-hidden="true"></span>
+    </button>
+  </div>
+</section>
+
+<!-- ============= VICTORY (initially hidden) ============= -->
+<section id="screen-victory" class="screen viki" aria-label="Victory screen">
+  <div class="viki__fireworks"><span>🎉</span><span>⭐</span><span>🎊</span><span>🏆</span></div>
+  <h2 class="viki__title">You Did It!</h2>
+  <p class="viki__subtitle">Amazing job — you know all the words! 🐶🍎👁️</p>
+  <button class="viki__restart" id="btn-restart" type="button">🔁  Play Again</button>
+</section>
+
+<script>
+(function () {
+  'use strict';
+
+  var screens = {
+    home:    document.getElementById('screen-home'),
+    q1:      document.getElementById('screen-q1'),
+    q2:      document.getElementById('screen-q2'),
+    q3:      document.getElementById('screen-q3'),
+    victory: document.getElementById('screen-victory')
+  };
+
+  // Randomize option order per question so the correct answer isn't always first.
+  document.querySelectorAll('.quiz__options').forEach(function (optGroup) {
+    var btns = Array.prototype.slice.call(optGroup.querySelectorAll('.opt'));
+    for (var i = btns.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = btns[i]; btns[i] = btns[j]; btns[j] = tmp;
+    }
+    btns.forEach(function (b) { optGroup.appendChild(b); });
+  });
+
+  function showScreen(name) {
+    Object.keys(screens).forEach(function (k) {
+      screens[k].classList.toggle('is-active', k === name);
+    });
+  }
+
+  function speak(word) {
+    if (!('speechSynthesis' in window)) return;
+    try {
+      var u = new SpeechSynthesisUtterance(word);
+      u.lang = 'en-US';
+      u.rate = 0.8;
+      u.pitch = 1.1;
+      u.volume = 1;
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(u);
+    } catch (_) { /* ignore */ }
+  }
+
+  // Shared click handler for every option on every question.
+  document.querySelectorAll('.opt').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (btn.disabled || btn.classList.contains('is-correct')) return;
+
+      var correct = btn.dataset.correct === 'true';
+      var optGroup = btn.parentElement;
+
+      if (!correct) {
+        btn.classList.add('is-wrong');
+        btn.querySelector('.opt__mark').textContent = '✗';
+        return;
+      }
+
+      // Correct! mark & advance
+      btn.classList.add('is-correct');
+      btn.querySelector('.opt__mark').textContent = '✓';
+      // Disable ONLY the current group so extra clicks are ignored during the pause
+      optGroup.querySelectorAll('.opt').forEach(function (b) { b.disabled = true; });
+      speak(btn.dataset.word);
+
+      // Auto-advance after a short pause so the child sees the ✓
+      setTimeout(function () {
+        // Clear marks/state on this group so if we come back (restart), it's fresh
+        optGroup.querySelectorAll('.opt').forEach(function (b) {
+          b.classList.remove('is-wrong', 'is-correct');
+          b.disabled = false;
+          var m = b.querySelector('.opt__mark'); if (m) m.textContent = '';
+        });
+
+        var q = optGroup.dataset.question;
+        if (q === '1')      showScreen('q2');
+        else if (q === '2') showScreen('q3');
+        else                showScreen('victory');
+      }, 1100);
+    });
+  });
+
+  document.getElementById('btn-start').addEventListener('click', function () {
+    showScreen('q1');
+  });
+  document.getElementById('btn-restart').addEventListener('click', function () {
+    showScreen('home');
+  });
+})();
+</script>
+</body>
+</html>
