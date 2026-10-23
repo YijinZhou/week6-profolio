@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Resume of Yijin.Zhou — Digital Education." />
+  <title>Yijin.Zhou · Resume</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ Navigation ============ -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__brand-dot" aria-hidden="true"></span>
+        Yijin.Zhou
+      </a>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" aria-label="Primary">
+        <ul class="nav__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ Page header ============ -->
+    <section class="page-header container">
+      <span class="eyebrow">Resume</span>
+      <h1 class="page-header__title">My path so far</h1>
+      <p class="page-header__lead">
+        A quick look at where I've worked, what I've studied, and the tools I reach for most.
+      </p>
+      <div class="hero__cta" style="margin-top:1.4rem;">
+        <a class="btn btn--primary" href="contact.html">Get in touch</a>
+        <a class="btn btn--ghost" href="index.html">Back to home</a>
+      </div>
+    </section>
+
+    <!-- ============ Resume body ============ -->
+    <section class="section--tight container">
+      <div class="grid grid--2">
+        <!-- Left: experience -->
+        <div class="card">
+          <div class="resume-block">
+            <div class="resume-block__head">
+              <span class="resume-block__icon" aria-hidden="true">💼</span>
+              <h2>Experience</h2>
+            </div>
+            <ul class="timeline">
+              <li class="timeline__item">
+                <div class="timeline__role">Frontend Developer</div>
+                <div class="timeline__meta">
+                  <span>🏡 Brightline Studio</span>
+                  <span>· 2023 — Present</span>
+                </div>
+                <p class="timeline__desc">
+                  Building and maintaining accessible marketing sites and small
+                  web apps. I collaborate closely with designers, write a lot of
+                  component CSS, and quietly champion better button labels.
+                </p>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__role">Junior Web Developer</div>
+                <div class="timeline__meta">
+                  <span>🏡 Pepper &amp; Co.</span>
+                  <span>· 2021 — 2023</span>
+                </div>
+                <p class="timeline__desc">
+                  Shipped landing pages, a small e-commerce checkout flow, and
+                  the company blog. Learned that "it works on my machine" is
+                  never the end of the conversation.
+                </p>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__role">Freelance Web Tinkerer</div>
+                <div class="timeline__meta">
+                  <span>🌍 Remote</span>
+                  <span>· 2020 — 2021</span>
+                </div>
+                <p class="timeline__desc">
+                  Built simple websites for local shops, a community garden, and
+                  one very enthusiastic dog groomer. First taste of turning real
+                  people's needs into real, live pages.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right: education + skills + summary -->
+        <div>
+          <div class="card" style="margin-bottom:1.4rem;">
+            <div class="resume-block__head">
+              <span class="resume-block__icon" aria-hidden="true">🎓</span>
+              <h2>Education</h2>
+            </div>
+            <ul class="timeline">
+              <li class="timeline__item">
+                <div class="timeline__role">B.Sc. in Computer Science</div>
+                <div class="timeline__meta">
+                  <span>🏫 Maplebrook University</span>
+                  <span>· 2017 — 2020</span>
+                </div>
+                <p class="timeline__desc">
+                  Focused on human–computer interaction and web technologies.
+                  Wrote my final project on making forms less miserable to fill in.
+                </p>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__role">Frontend Web Development Certificate</div>
+                <div class="timeline__meta">
+                  <span>📚 online</span>
+                  <span>· 2020</span>
+                </div>
+                <p class="timeline__desc">
+                  A focused deep-dive into modern HTML, CSS, and accessibility
+                  fundamentals — the course that quietly changed how I build.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card" style="margin-bottom:1.4rem;">
+            <div class="resume-block__head">
+              <span class="resume-block__icon" aria-hidden="true">🧰</span>
+              <h2>Skills &amp; tools</h2>
+            </div>
+            <ul class="skill-chips">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Accessibility (a11y)</li>
+              <li>Responsive design</li>
+              <li>Git &amp; GitHub</li>
+              <li>React basics</li>
+              <li>Figma</li>
+              <li>SEO basics</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="resume-block__head">
+              <span class="resume-block__icon" aria-hidden="true">⭐</span>
+              <h2>Highlights</h2>
+            </div>
+            <ul>
+              <li>Led a small accessibility audit that improved form completion rates.</li>
+              <li>Mentored two junior developers through their first production deploys.</li>
+              <li>Spoke at a local meetup on writing friendlier error messages.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__funfact">
+        <strong>Fun fact about me:</strong> My very first "website" was a fan page for my pet hamster. It had a hit counter and one very blurry photo.
+      </div>
+      <ul class="footer__social" aria-label="Social links">
+        <li><a href="contact.html" aria-label="Email">✉️</a></li>
+        <li><a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">🐱</a></li>
+        <li><a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a></li>
+      </ul>
+      <p class="footer__copy">© <span id="year">2026</span> Yijin.Zhou · Made with care &amp; coffee.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="script.js"></script>
+</body>
+</html>

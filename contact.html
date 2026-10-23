@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get in touch with Yijin.Zhou — say hello, share an idea, or just talk about coffee." />
+  <title>Yijin.Zhou · Contact Me</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ Navigation ============ -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__brand-dot" aria-hidden="true"></span>
+        Yijin.Zhou
+      </a>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" aria-label="Primary">
+        <ul class="nav__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ Page header ============ -->
+    <section class="page-header container">
+      <span class="eyebrow">Contact Me</span>
+      <h1 class="page-header__title">Let's say hello</h1>
+      <p class="page-header__lead">
+        Got a question, an idea, or just want to say hi? Drop me a note — I read
+        everything and reply as fast as a good cup of coffee lets me.
+      </p>
+    </section>
+
+    <!-- ============ Contact grid ============ -->
+    <section class="section--tight container">
+      <div class="contact-grid">
+
+        <!-- Left: contact details -->
+        <div class="card">
+          <h2 style="font-size:1.3rem; margin-bottom:1.2rem;">Other ways to reach me</h2>
+
+          <div class="contact-info__item">
+            <span class="contact-info__icon" aria-hidden="true">✉️</span>
+            <div>
+              <div class="contact-info__label">Email</div>
+              <a class="contact-info__value" href="mailto:2645010404@qq.com">2645010404@qq.com</a>
+            </div>
+          </div>
+
+          <div class="contact-info__item">
+            <span class="contact-info__icon" aria-hidden="true">📍</span>
+            <div>
+              <div class="contact-info__label">Based in</div>
+              <span class="contact-info__value">Suzhou</span>
+            </div>
+          </div>
+
+          <div class="contact-info__item">
+            <span class="contact-info__icon" aria-hidden="true">🕑</span>
+            <div>
+              <div class="contact-info__label">Reply time</div>
+              <span class="contact-info__value">Usually within 1–2 weekdays</span>
+            </div>
+          </div>
+
+          <div class="contact-info__item" style="margin-bottom:0;">
+            <span class="contact-info__icon" aria-hidden="true">🌐</span>
+            <div>
+              <div class="contact-info__label">Around the web</div>
+              <ul class="footer__social" style="justify-content:flex-start; margin:.3rem 0 0;">
+                <li><a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">🐱</a></li>
+                <li><a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a></li>
+                <li><a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">🐦</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="card">
+          <h2 style="font-size:1.3rem; margin-bottom:1.2rem;">Send me a message</h2>
+          <form id="contact-form" class="form" novalidate>
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="e.g. Sam Rivera" required maxlength="80" />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+
+            <div class="field">
+              <label for="subject">Subject <span style="color:var(--muted); font-weight:400;">(optional)</span></label>
+              <input type="text" id="subject" name="subject" placeholder="What's on your mind?" maxlength="120" />
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Hi Alex, I wanted to chat about…" required minlength="10" maxlength="2000"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary" style="justify-content:center;">Send message</button>
+
+            <p class="form__notice" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__funfact">
+        <strong>Fun fact about me:</strong> I keep a "nice messages" folder of kind emails people have sent me. It's the warmest folder on my laptop.
+      </div>
+      <ul class="footer__social" aria-label="Social links">
+        <li><a href="mailto:2645010404@qq.com" aria-label="Email">✉️</a></li>
+        <li><a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">🐱</a></li>
+        <li><a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a></li>
+      </ul>
+      <p class="footer__copy">© <span id="year">2026</span> Yijin.Zhou · Made with care &amp; coffee.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="script.js"></script>
+</body>
+</html>

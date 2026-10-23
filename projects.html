@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projects by Yijin.Zhou — exploring where kids, play and educational technology meet." />
+  <title>Yijin.Zhou · Projects</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ Navigation ============ -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__brand-dot" aria-hidden="true"></span>
+        Yijin.Zhou
+      </a>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" aria-label="Primary">
+        <ul class="nav__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ Page header ============ -->
+    <section class="page-header container">
+      <span class="eyebrow">Projects</span>
+      <h1 class="page-header__title">TO DO LIST</h1>
+      <p class="page-header__lead">
+        A small collection of work — some shipped for clients, some made just for
+        fun. All of them taught me something.
+      </p>
+    </section>
+
+    <!-- ============ To-do app ============ -->
+    <section class="section--tight container">
+      <div class="todo card">
+        <p class="todo__counter" id="todo-counter" aria-live="polite">0 of 0 tasks completed</p>
+        <form class="todo__form" id="todo-form">
+          <div class="todo__field todo__field--text">
+            <label for="todo-text" class="todo__label">Task</label>
+            <input
+              type="text"
+              id="todo-text"
+              class="todo__input"
+              placeholder="What needs doing?"
+              autocomplete="off"
+              required />
+          </div>
+          <div class="todo__field todo__field--date">
+            <label for="todo-date" class="todo__label">Date</label>
+            <input type="date" id="todo-date" class="todo__input" />
+          </div>
+          <div class="todo__field todo__field--priority">
+            <label for="todo-priority" class="todo__label">Priority</label>
+            <select id="todo-priority" class="todo__input todo__select">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn--primary todo__add">Add</button>
+        </form>
+
+        <ul class="todo__list" id="todo-list" aria-label="Task list"></ul>
+        <p class="todo__empty" id="todo-empty">No tasks yet — add one above.</p>
+      </div>
+    </section>
+
+    <!-- ============ English quiz ============ -->
+    <section class="section--tight container">
+      <div class="text-center" style="margin-bottom:1rem;">
+        <span class="eyebrow">Project</span>
+        <h2 class="section-title">English Quiz</h2>
+        <p class="section-lead" style="margin-inline:auto;">
+          A colorful little word quiz for curious kids — pick the right picture word and celebrate when you get them all!
+        </p>
+      </div>
+
+      <div class="card" style="display:flex; flex-direction:column; align-items:center; gap:1rem; padding:1.8rem;">
+        <div aria-hidden="true" style="font-size:3.2rem; letter-spacing:.4rem;">🐶🍎👁️</div>
+        <p style="margin:0; color:var(--muted); text-align:center; max-width:34rem;">
+          Three pictures, three rounds, one confetti-filled finish. Built as a single
+          HTML file so it works anywhere.
+        </p>
+        <a class="btn btn--primary" href="english-app/index.html">▶  Play the quiz</a>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section--tight container">
+      <div class="card" style="display:flex; flex-wrap:wrap; gap:1.2rem; align-items:center; justify-content:space-between;">
+        <div style="flex:1 1 320px;">
+          <h2 style="margin-bottom:.4rem;">Have a project in mind?</h2>
+          <p style="margin:0; color:var(--muted);">I'm always happy to chat about friendly, accessible web work — big or small.</p>
+        </div>
+        <a class="btn btn--primary" href="contact.html">Let's talk</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__funfact">
+        <strong>Fun fact about me:</strong> Roughly 40% of my "serious" projects started as an excuse to make a nicer button.
+      </div>
+      <ul class="footer__social" aria-label="Social links">
+        <li><a href="contact.html" aria-label="Email">✉️</a></li>
+        <li><a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">🐱</a></li>
+        <li><a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a></li>
+      </ul>
+      <p class="footer__copy">© <span id="year">2026</span> Yijin.Zhou · Made with care &amp; coffee.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
